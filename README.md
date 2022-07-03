@@ -22,3 +22,11 @@ Open another terminal session and run:
 
 Once all services have successfully launched, you will have a basic Kafka environment running and ready to use. 
 
+### Step 3: Publish a Message
+After starting the poc app and once the app is up and running, use the below curl to publish a message.
+
+    curl -X POST localhost:8080/publish \
+    -H 'Content-Type: application/json' \
+    -d '{"id": 1, "title": "ipod", "description": "ipod blue color 2gb", "price": 23.1 }'
+
+Observe the app logs to see if the message got published successfully.
