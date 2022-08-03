@@ -15,7 +15,7 @@ import org.springframework.util.concurrent.ListenableFutureCallback;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class KafkaProducer {
+public class AppKafkaProducer {
 
     @Value("${app.sample-topic}")
     private String sampleAppTopic;

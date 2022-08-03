@@ -1,27 +1,25 @@
 plugins {
-	id 'org.springframework.boot' version '2.6.9'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
+    id 'org.springframework.boot' version '2.2.4.RELEASE'
+    id 'java'
 }
 
-group = 'com.pochub.kafkapoc'
-version = '0.0.1-SNAPSHOT'
+// Plugins
+apply plugin: "io.spring.dependency-management"
+
+repositories {	
+    mavenCentral()
+}
+
+
+group 'com.pochub.kafkapoc'
+version '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
-
-configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
-}
-
-repositories {
-	mavenCentral()
-}
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.kafka:spring-kafka'
+	implementation 'org.apache.kafka:kafka-clients'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
@@ -30,6 +28,3 @@ dependencies {
 	testImplementation 'org.springframework.kafka:spring-kafka-test'
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
-}
